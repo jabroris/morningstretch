@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Greenhouse List</title>
+<style type="text/css">
+.tg {
+	border-collapse:collapse;
+	border-spacing:0;
+	border-color:#ccc;}
+.tg td {
+	font-family:Arial, sans-serif;
+	font-size:14px;padding:10px 5px;
+	border-style:solid;
+	border-width:1px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#ccc;
+	color:#333;
+	background-color:#fff;}
+.tg th {
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:1px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#ccc;
+	color:#333;
+	background-color:#f0f0f0;}
+.tg .tg-4eph {
+	background-color:#f9f9f9}
+</style>
+</head>
+<body>
+<h1>Greenhouse List</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="greenhouse : ${greenhouses}">
+        <td th:text="${greenhouse.id}">123</td>
+        <td th:text="${greenhouse.name}"> Spring in Action</td>
+        <td th:text="${greenhouse.latitude}">Wrox</td>
+        <td th:text="${greenhouse.longitude"></td>
+        <td th:text="${greenhouse.description"></td>
+    </tr>
+</table>
+
+</body>
+</html>
