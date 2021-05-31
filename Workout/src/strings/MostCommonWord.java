@@ -7,12 +7,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.regex.Pattern;
+
+import static java.util.stream.Collectors.*;
 
 public class MostCommonWord {
 	
 	public static void main(String[] args)
 	{
-		String paragraph = "Bob hit a ball, the hit BALL flew far after it was hit. the, also the ball it god damn ball";
+		String paragraph = "Bob hit a ball, the hit BALL flew far after it was hit. the hit, also the ball it god damn ball hit hit";
 		String [] banned = {"hit", "ball"};
 		MostCommonWord mcw = new MostCommonWord();
 		String result = mcw.mostCommonWord(paragraph.toLowerCase(), banned);
@@ -62,31 +65,15 @@ public class MostCommonWord {
 	
 	public String commonWord(String text)
 	{
-		String[] textArr = text.toLowerCase().split("[, .?;:!]+");
-		HashMap<String, Integer> hm = new HashMap<String, Integer>();
+		Pattern pattern = Pattern.compile("[ ,.:;-]+");
 		
-		for(int i = 0; i < textArr.length; i++)
-		{
-			if(hm.containsKey(textArr[i]))
-				hm.put(textArr[i], hm.get(textArr[i])+1);
-			else
-				hm.put(textArr[i], 1);
-		}
-		
-		String result = "";
-		int count = 0;
-		Iterator<Entry<String, Integer>> it = hm.entrySet().iterator();
-		
-		while(it.hasNext())
-		{
-			Entry<String, Integer> mapElement = it.next();
-			if((int)mapElement.getValue() > count)
-			{
-				count = mapElement.getValue();
-				result = mapElement.getKey();
-			}
-			System.out.println("Key value pair:  " + mapElement.getKey() + " -- " + mapElement.getValue());
-		}
-		return result;
-	}
+		return pattern.splitAsStream(text)
+						.map(String::toLowerCase)
+						.collect(groupingBy(word -> word, counting()))
+						.entrySet().stream()
+						.max(Map.Entry.comparingByValue())
+						.orElseThrow()
+						.toString();
+	} //to get a list of all common words you can watch the streams video (part 2) around the 2:10
+	  //where they are talking about streaming maps
 }

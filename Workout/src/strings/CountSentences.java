@@ -3,6 +3,7 @@ package strings;
 import java.io.*;
 import java.util.*;
 import java.util.stream.*;
+import static java.util.stream.Collectors.*;
 
 class Result3 {
 
@@ -17,6 +18,8 @@ class Result3 {
 
   public static List<Long> countSentences(List<String> wordSet, List<String> sentences) {
 	  List<Long> resultList = new ArrayList<Long>();
+	  
+	  resultList.add(sentences.stream().count());
 	  
 	  return resultList;
   }
