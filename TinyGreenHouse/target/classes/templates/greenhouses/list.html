@@ -10,9 +10,10 @@
 	border-color:#ccc;}
 .tg td {
 	font-family:Arial, sans-serif;
-	font-size:14px;padding:10px 5px;
+	font-size:24px;
+	padding:30px 25px;
 	border-style:solid;
-	border-width:1px;
+	border-width:2px;
 	overflow:hidden;
 	word-break:normal;
 	border-color:#ccc;
@@ -20,11 +21,10 @@
 	background-color:#fff;}
 .tg th {
 	font-family:Arial, sans-serif;
-	font-size:14px;
-	font-weight:normal;
-	padding:10px 5px;
+	font-size:24px;
+	padding:30px 25px;
 	border-style:solid;
-	border-width:1px;
+	border-width:2px;
 	overflow:hidden;
 	word-break:normal;
 	border-color:#ccc;
@@ -37,7 +37,7 @@
 <body>
 <h1>Greenhouse List</h1>
 
-<table border="1">
+<table border="1" class="tg">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -48,11 +48,11 @@
     <tr th:each="greenhouse : ${greenhouses}">
         <td th:text="${greenhouse.id}">123</td>
         <td th:text="${greenhouse.name}"> Spring in Action</td>
-        <td th:text="${greenhouse.latitude}">Wrox</td>
-        <td th:text="${greenhouse.longitude"></td>
-        <td th:text="${greenhouse.description"></td>
+        <td th:text="${greenhouse.latitude}"></td>
+        <td th:text="${greenhouse.longitude}"></td>
+        <td th:text="${greenhouse.description}"></td>
     </tr>
 </table>
-
+<p><a href="/addnewgreenhouse">Add a new Greenhouse</a>
 </body>
 </html>

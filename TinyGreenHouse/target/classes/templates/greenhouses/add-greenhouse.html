@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Greenhouse List</title>
+<style type="text/css">
+.tg {
+	border-collapse:collapse;
+	border-spacing:0;
+	border-color:#ccc;}
+.tg td {
+	font-family:Arial, sans-serif;
+	font-size:24px;
+	padding:30px 25px;
+	border-style:solid;
+	border-width:2px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#ccc;
+	color:#333;
+	background-color:#fff;}
+.tg th {
+	font-family:Arial, sans-serif;
+	font-size:24px;
+	padding:30px 25px;
+	border-style:solid;
+	border-width:2px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#ccc;
+	color:#333;
+	background-color:#f0f0f0;}
+.tg .tg-4eph {
+	background-color:#f9f9f9}
+</style>
+</head>
+<body>
+<h1>ADD G-HOUSE</h1>
+	<form action="#" th:action="@{/addgreenhouse}" th:object="${Greenhouse}" method="post">
+    	<p>Name: <input type="text" th:field="*{Greenhouse.name}" id="name" /></p>
+    	<p>Latitude: <input type="text" th:field="*{Greenhouse.latitude}" id="latitude" /></p>
+        <p>Longitude: <input type="text" th:field="*{Greenhouse.longitude}" id="longitude" /></p>
+    	<p>Description: <input type="text" th:field="*{Greenhouse.description}" id="description" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
