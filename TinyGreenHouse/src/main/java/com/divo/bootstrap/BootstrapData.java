@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 import com.divo.domain.Greenhouse;
 import com.divo.repositories.GreenhouseRepository;
 
-@Component
-public class BootstrapData implements CommandLineRunner {
+//@Component
+public class BootstrapData  {
 
 	private final GreenhouseRepository greenhouseRepository;
 	
@@ -15,14 +15,14 @@ public class BootstrapData implements CommandLineRunner {
 		this.greenhouseRepository = greenhouseRepository;
 	}
 	
-	@Override
-	public void run(String... args) throws Exception {
-		
-		Greenhouse greenhouse = new Greenhouse("Test GH", "33.34234", "5.342", "my test");
-		greenhouseRepository.deleteAll();
-		greenhouseRepository.save(greenhouse);
-		
-		System.out.println("Saving one greenhouse.......................................... ");
-	}
+//	@Override
+//	public void run(String... args) throws Exception {
+//		
+//		Greenhouse greenhouse = new Greenhouse("Test GH", "33.34234", "5.342", "my test");
+//		greenhouseRepository.deleteAll();
+//		greenhouseRepository.save(greenhouse);
+//		
+//		System.out.println("Saving one greenhouse.......................................... ");
+//	}
 
 }

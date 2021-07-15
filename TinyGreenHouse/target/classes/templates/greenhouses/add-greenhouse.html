@@ -13,7 +13,7 @@
 	font-size:24px;
 	padding:30px 25px;
 	border-style:solid;
-	border-width:2px;
+	border-width:0px;
 	overflow:hidden;
 	word-break:normal;
 	border-color:#ccc;
@@ -32,16 +32,38 @@
 	background-color:#f0f0f0;}
 .tg .tg-4eph {
 	background-color:#f9f9f9}
+.tg input {
+	height:30px;
+	width:250px;}
+.sub input {
+	width:150px;}
 </style>
 </head>
 <body>
 <h1>ADD G-HOUSE</h1>
-	<form action="#" th:action="@{/addgreenhouse}" th:object="${Greenhouse}" method="post">
-    	<p>Name: <input type="text" th:field="*{Greenhouse.name}" id="name" /></p>
-    	<p>Latitude: <input type="text" th:field="*{Greenhouse.latitude}" id="latitude" /></p>
-        <p>Longitude: <input type="text" th:field="*{Greenhouse.longitude}" id="longitude" /></p>
-    	<p>Description: <input type="text" th:field="*{Greenhouse.description}" id="description" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+	
+	<form class="tg" action="#" th:action="@{/addgreenhouse}" th:object="${greenhouse}" method="post">
+	<table>
+    	<tr>
+    		<td align="left">Name:</td>
+    		<td align="right"><input type="text" th:field="*{name}" id="name" /></td>
+    	</tr>
+    	<tr>
+    		<td align="left">Latitude:</td>
+    		<td align="right"><input type="text" th:field="*{latitude}" id="latitude" /></td>
+        </tr>
+        <tr>
+        	<td align="left">Longitude:</td>
+        	<td align="right"><input type="text" th:field="*{longitude}" id="longitude" /></td>
+    	</tr>
+    	<tr>
+    		<td align="left">Description:</td>
+    		<td align="right"><input type="text" th:field="*{description}" id="description" /></td>
+        </tr>
+        <tr>
+        	<td align="right" colspan="2"><input class="sub" type="submit" value="Submit" /> <input class="sub" type="reset" value="Reset" /></td>
+    	</tr>
+    </table>
     </form>
 </body>
 </html>

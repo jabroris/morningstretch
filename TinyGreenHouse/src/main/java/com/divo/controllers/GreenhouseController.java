@@ -29,12 +29,15 @@ public class GreenhouseController {
 	}
 	
 	@GetMapping("/addnewgreenhouse") 
-	public String addNewGreenhouse(Greenhouse gh) {
+	public String addNewGreenhouse(Model model) {
+		model.addAttribute("greenhouse", new Greenhouse());
 		return "greenhouses/add-greenhouse";
 	}
 	
 	@PostMapping("/addgreenhouse")
 	public String addGreenhouse(Greenhouse gh, BindingResult result, Model model) {
+		gh = (Greenhouse) model.getAttribute("greenhouse");
+		
 		if(result.hasErrors()) {
 			return "greenhouses/add-greenhouse";
 		}
