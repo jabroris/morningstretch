@@ -1,12 +1,17 @@
 package com.divo.controllers;
 
+import java.util.Optional;
+
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.divo.domain.Greenhouse;
 import com.divo.repositories.GreenhouseRepository;
@@ -46,7 +51,21 @@ public class GreenhouseController {
 		return "redirect:/greenhouses";
 	}
 	
+	@PostMapping("/details/{id}")
+	public String greenhouseDetails(Integer id, Model model) {
+		Optional<Greenhouse> gh = greenhouseRepository.findById(id);
+		Greenhouse greenhouse = gh.get();
+		model.addAttribute(greenhouse);
+		return "greenhouses/details";
+	}
 	
+	@GetMapping("/details/{id}")
+	public String showDetails(@PathVariable("id") Integer id, Model model) {
+		Optional<Greenhouse> gh = greenhouseRepository.findById(id);
+		Greenhouse greenhouse = gh.get();
+		model.addAttribute("greenhouse", greenhouse);
+		return "greenhouses/details";
+	}
 	
 //	@RequestMapping("/addgreenhouse")
 //	public String addGreenhouse(Model model) {

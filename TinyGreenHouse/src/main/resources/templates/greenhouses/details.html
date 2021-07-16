@@ -38,31 +38,30 @@
 .tg tr:hover {
 	background-color:#c0c0c0;}
 </style>
-<script>
-	function rowClicked(value) {
-		location.href = "/details/" + value;
-	}
-</script>
+
 </head>
 <body>
-<h1>Greenhouse List</h1>
-
-<table border="1" class="tg">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
-        <th>Description</th>
-    </tr>
-    <tr  th:each="greenhouse : ${greenhouses}" th:onclick="'javascript:rowClicked(\'' + ${greenhouse.id} + '\');'" >
-        <td th:text="${greenhouse.id}">123</td>
-        <td th:text="${greenhouse.name}"> Spring in Action</td>
-        <td th:text="${greenhouse.latitude}"></td>
-        <td th:text="${greenhouse.longitude}"></td>
-        <td th:text="${greenhouse.description}"></td>
-    </tr>
-</table>
-<p><a href="/addnewgreenhouse">Add a new Greenhouse</a>
+<h1>G-HOUSE DETAILS</h1>
+	
+	
+	<table th:object="${greenhouse}" class="tg">
+    	<tr>
+    		<td>Name:</td>
+    		<td th:text="*{name}" id="name" ></td>
+    	</tr>
+    	<tr>
+    		<td>Latitude:</td>
+    		<td th:text="*{latitude}" id="latitude" ></td>
+        </tr>
+        <tr>
+        	<td>Longitude:</td>
+        	<td th:text="*{longitude}" id="longitude" ></td>
+    	</tr>
+    	<tr>
+    		<td>Description:</td>
+    		<td th:text="*{description}" id="description" ></td>
+        </tr>
+    </table>
+    
 </body>
 </html>
