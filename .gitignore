@@ -1,4 +1,4 @@
-Workout/target/classes/*
-
+#Workout/target/classes/**
+Workout/target/classes/hackerrank/*
 #Compiled clases
 *.class
