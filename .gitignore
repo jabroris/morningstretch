@@ -1,0 +1,4 @@
+Workout/target/classes/*
+
+#Compiled clases
+*.class
