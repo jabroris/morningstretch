@@ -1,4 +1,5 @@
 #Workout/target/classes/**
 Workout/target/classes/hackerrank/*
+TinyGreenHouse/target/*
 #Compiled clases
 *.class
